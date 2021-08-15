@@ -6,6 +6,13 @@ this api was develop to study.
 
 ```bash
 
+# clone repo
+
+```bash
+git clone https://github.com/romaryoricardo/api-golang-example.git 
+
+cd api-golang-example
+```
 # create folder persistent data to postgresql
 mkdir postgresql
 
