@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - "db"
+    env_file:
+      - .env
+    links:
+      - "db:database"
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres
+    container_name: postgresql-desafio
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: desafio
+      POSTGRES_USER: desafio
+      POSTGRES_PASSWORD: 123456
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
